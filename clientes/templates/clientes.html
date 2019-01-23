@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Administração
+{% endblock title %}
+
+{% block main %}
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+        <ul class="list-group-item">
+            {% for cliente in clientes %}
+                <li class="list-group-item">
+                    <a href="{% url 'persons_update' cliente.id %}">{{ cliente.first_name }}</a>
+                    <a href="{% url 'persons_delete' cliente.id %}">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <br>
+        <a href="{% url 'persons_new' %}">
+            <i class="fas fa-plus-circle"></i>&nbsp;Adicionar Cliente
+        </a>
+        </div>
+        <div class="col">
+            {% if user.is_authenticated %}
+                <p>Welcome {{ user.username }}
+                    <a href="{% url 'my_logout' %}" class="badge badge-dark">Sair</a>
+                </p>
+            {% else %}
+                <a href="{% url 'login' %}" class="btn btn-info">Entrar</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

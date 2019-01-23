@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+
+{% block title %}
+  Confirmar Exclusão
+{% endblock title %}
+
+{% block main %}
+  <h1>Deseja Deletar {{ person.first_name }}</h1>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Deletar</button>
+  </form>
+{% endblock %}
