@@ -1,5 +1,4 @@
 venv
 .sqlite3
 media
-.env
 heroku.txt
