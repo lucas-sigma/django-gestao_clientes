@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
 </head>
-<body>
-    <div class="container mt-3">
-        <div class="jumbotron">
-        {% block main %}
-        {% endblock %}
-        </div>
-    </div>
 
+<body>
+    <main>
+    {% block main %}
+    {% endblock %}
+    </main>
 
     {% block footer %}
-    <div class="footer">
-        <div class="container">
-            <span class="text-muted">Desenvolvimento web com Django 2.X</span>
-        </div>
-    </div>
+    <footer>
+        <div class="footer-copyright text-center py-3">Desenvolvimento web com Django 2.X</div>
+    </footer>
     {% endblock %}
 
 
     {% load static %}
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'stick-footer.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </body>
+
 </html>

@@ -1,18 +1,25 @@
 {% extends 'base.html' %}
 {% block main %}
-    <div class="row">
-        <div class="col-sm"></div>
-        <div class="col-sm"></div>
-        <div class="col-sm">
-            {% if user.is_authenticated %}
-                <h1>Welcome {{ user.username }}</h1>
-                <nav>
-                    <a href="{% url 'persons_list' %}">Lista de Clientes</a>
-                </nav>
-                <a>Logout</a>
-            {% else %}
-                <a href="{% url 'login' %}">Login</a>
-            {% endif %}
-        </div>
+<div class="row bg-dark">
+
+    {% if user.is_authenticated %}
+    <div class="col-2"></div>
+    <div class="col-6 d-flex align-items-center align-text-center">
+        <h1>Seja Bem-Vindo {{ user.username }}</h1>
     </div>
+    <div class="col-3 d-flex align-items-center">
+        <a href="{% url 'persons_list' %}" class="text-light">Lista de Clientes</a>
+        <a href="{% url 'my_logout' %}" class="btn btn-outline-light">Logout</a>
+    </div>
+    {% else %}
+    <div class="col-2"></div>
+    <div class="col-8 d-flex align-items-center">
+        <h1>Seja Bem-Vindo ao Projeto de Gestão de Usuários.</h1>
+    </div>
+    <div class="col d-flex align-items-center">
+        <a href="{% url 'login' %}" class="text-light"><u>Login</u></a>
+        <a href="{% url 'signup' %}" class="btn btn-outline-light">Sign Up</a>
+    </div>
+    {% endif %}
+</div>
 {% endblock %}

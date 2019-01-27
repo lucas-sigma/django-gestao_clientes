@@ -6,9 +6,16 @@
 {% endblock title %}
 
 {% block main %}
-  <h1>Deseja Deletar {{ person.first_name }}</h1>
-  <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Deletar</button>
-  </form>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-5 d-flex align-items-center">
+      <h1 class="text-info">Deseja Deletar {{ person.first_name }}?</h1>
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+      </div>
+    <div class="col-3 d-flex align-items-center"><button type="submit" class="btn btn-danger">Deletar</button></div>
+    </form>
+  </div>
+
 {% endblock %}
